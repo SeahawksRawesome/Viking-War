@@ -15,10 +15,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
+	ObjectManager manager = new ObjectManager();
 	Font title;
+	Soldier infantry = new Soldier(250, 400, 50, 50);
 	GamePanel() {
 		timer = new Timer(1000 / 60, this);
 		title = new Font("Arial", Font.PLAIN, 48);
+		manager.addObject(infantry);
 	}
 
 	void updateMenuState() {
@@ -26,7 +29,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
    void updateGameState() {
-
+	   manager.update();
 	}
 
 	void updateEndState() {
@@ -45,6 +48,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawGameState(Graphics g) {
 		
 		g.clearRect(0, 0, Viking_War.height, Viking_War.width);
+		manager.draw(g);
 	}
 
 	void drawEndState(Graphics g) {

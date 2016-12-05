@@ -5,6 +5,7 @@ public abstract class GameObject {
 	int y;
 	int width;
 	int height;
+	int isAlive;
 
 	public GameObject(int x, int y, int width, int height) {
 		this.x = x;
