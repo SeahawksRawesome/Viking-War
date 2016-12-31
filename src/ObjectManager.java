@@ -37,18 +37,18 @@ public class ObjectManager {
 
 	private void purgeObjects() {
 		for (int i = 0; i < objects.size(); i++) {
-			if (!objects.get(i).isAlive) {
+			if (!(objects.get(i).isAlive)) {
 				objects.remove(i);
 			}
 		}
 	}
 
-//	public void manageEnemies(){
-//		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
-//			addObject(new Alien(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
-//			enemyTimer = System.currentTimeMillis();
-//		}
-//	}
+	public void manageEnemies(){
+		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
+			addObject(new Enemy(new Random().nextInt(Viking_War.width), 0, 50, 50));
+			enemyTimer = System.currentTimeMillis();
+		}
+	}
 //
 //	public void checkCollision() {
 //		for (int i = 0; i < objects.size(); i++) {
